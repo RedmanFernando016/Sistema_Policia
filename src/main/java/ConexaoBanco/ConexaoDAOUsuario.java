@@ -1,5 +1,6 @@
 package ConexaoBanco;
 
+import SistemasConta.NivelAcesso;
 import SistemasConta.User;
 
 import java.sql.Connection;
@@ -7,14 +8,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 
-public class ConexaoDAO {
+public class ConexaoDAOUsuario {
 
-    public static boolean cadastroDAO(String cpf, String nome, String sexo, LocalDate dataNascimento, String senha) {
+    public static boolean cadastroDAO(String cpf, String nome, String sexo, LocalDate dataNascimento, String senha, NivelAcesso nivelAcesso) {
 
         try {
             Connection conn = Conexao.conectar();
 
-            String sql = "INSERT INTO usuario (cpf, nome, sexo, dataNascimento, senha) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO usuario (cpf, nome, sexo, dataNascimento, senha, nivelAcesso) VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -23,6 +24,7 @@ public class ConexaoDAO {
             ps.setString(3, sexo);
             ps.setDate(4, java.sql.Date.valueOf(dataNascimento));
             ps.setString(5, senha);
+            ps.setString(6, String.valueOf(nivelAcesso));
 
             ps.executeUpdate();
 

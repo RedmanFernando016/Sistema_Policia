@@ -1,5 +1,7 @@
 package SistemasConta;
 
+import ConexaoBanco.ConexaoDAOUsuario;
+
 import java.util.Scanner;
 
 public class SistemaLogin {
@@ -12,7 +14,7 @@ public class SistemaLogin {
         String cpf = sc.nextLine();
         System.out.println("Digite sua senha: \n");
         String senha = sc.nextLine();
-        ConexaoBanco.ConexaoDAO.loginDAO(cpf, senha);
+        ConexaoDAOUsuario.loginDAO(cpf, senha);
 
     }
 }

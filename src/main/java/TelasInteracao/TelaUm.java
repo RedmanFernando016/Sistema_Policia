@@ -18,7 +18,8 @@ public class TelaUm {
 
             System.out.println(" 1 - Login \n");
             System.out.println(" 2 - Registrar \n");
-            System.out.println(" 3 - Sair\n");
+            System.out.println(" 3 - Registrar novo agente policial\n");
+            System.out.println(" 4 - Sair\n");
             escolha = sc.nextInt();
             sc.nextLine();
 
@@ -35,6 +36,10 @@ public class TelaUm {
                 }
 
                 case 3: {
+
+                }
+
+                case 4: {
 
                     break;
                 }

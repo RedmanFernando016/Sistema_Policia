@@ -1,11 +1,12 @@
 package SistemasConta;
 
-import ConexaoBanco.ConexaoDAO;
+import ConexaoBanco.ConexaoDAOUsuario;
 import SistemaPolicia.AdaptadorTempo.Data;
-import SistemasConta.User;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import static SistemasConta.NivelAcesso.CIDADAO;
 
 public class SistemaCadastro {
 
@@ -19,6 +20,7 @@ public class SistemaCadastro {
         String cpf;
         String sexo;
         String senha;
+        NivelAcesso nivelAcesso;
         LocalDate dataNascimento;
 
 
@@ -50,7 +52,8 @@ public class SistemaCadastro {
 
         } while(escolha != 1);
 
-        ConexaoDAO.cadastroDAO(cpf, nome, sexo, dataNascimento, senha);
+        nivelAcesso = CIDADAO;
+        ConexaoDAOUsuario.cadastroDAO(cpf, nome, sexo, dataNascimento, senha, nivelAcesso);
 
         System.out.println("Informações cadastradas e perfil gerado!\n\n");
     }
